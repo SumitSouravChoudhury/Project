@@ -1,0 +1,168 @@
+* {
+    color: white;
+}
+
+.main {
+    padding-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container1 {
+    margin: 20px 0;
+    text-align: center;
+    max-width: 600px;
+}
+
+.container1 h1 {
+    font-size: 3rem;
+}
+
+.container2 {
+    margin: 20px 0;
+}
+
+input {
+    border: 2px solid rgb(74, 74, 74);
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    width: 500px;
+    font-size: 1rem;
+    color: black;
+}
+
+input::placeholder {
+    color: black;
+}
+
+.search {
+    padding: 0.8rem 1rem;
+    margin-left: 8px;
+}
+
+
+.container3 {
+    margin: 10px 0;
+    border: 1.5px solid white;
+    border-radius: 5px;
+}
+
+.container3 p {
+    margin: 7px 15px;
+}
+
+.container3 p span {
+    font-weight: bolder;
+}
+
+.container4 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    padding: 30px;
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.image-item {
+    width: 350px;
+    height: 300px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+
+    .image-item {
+        width: 210px;
+        height: 175px;
+    }
+
+    .container1 {
+        max-width: 400px;
+    }
+
+    .container1 h1 {
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    .container1 {
+        max-width: 300px;
+    }
+
+    .container1 h1 {
+        font-size: 1.5rem;
+    }
+
+    input {
+        width: 200px;
+    }
+
+    .image-container {
+        grid-template-columns: auto auto;
+    }
+
+    .image-item {
+        width: 150px;
+        height: 100px;
+    }
+
+    .container4 h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+
+    .image-item {
+        width: 125px;
+        height: 100px;
+    }
+
+    .container4 h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+
+
+    .container1 {
+        max-width: 250px;
+    }
+
+    .container1 h1 {
+        font-size: 1.2rem;
+    }
+
+    input{
+        width: 125px;
+        padding: 4px 10px;
+    }
+
+    .search {
+        padding: 4px 10px;
+    }
+
+    .container3 p {
+        font-size: 0.8rem;
+    }
+
+    .image-item {
+        width: 100px;
+        height: 100px;
+    }
+}
