@@ -2,6 +2,8 @@ import "./Home.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ImageModal from "../components/ImageModal";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const PIXABAY_API_KEY = "41912315-3335e551c70ebcfd1b33e0cfe";
 
@@ -9,6 +11,7 @@ function Home() {
   const [query, setQuery] = useState("");
   const [images, setImages] = useState([]);
   const [searchClicked, setSearchClicked] = useState(false);
+  const [openBackdrop, setOpenBackdrop] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -35,6 +38,10 @@ function Home() {
 
   const handleSearchClick = () => {
     setSearchClicked(true);
+    setOpenBackdrop(true);
+    setTimeout(() => {
+      setOpenBackdrop(false);
+    }, 1000);
   };
 
   const handleImageClick = (image) => {
@@ -68,12 +75,22 @@ function Home() {
           <span>Trending:</span> Flowers, Love, Forest, River
         </p>
       </div>
-
+      {openBackdrop && (
+        <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+      )}
       <div className="container4">
         <h1 style={{ display: searchClicked ? "block" : "none" }}>
           Results: {query}
         </h1>
-        <div className="image-container" style={{ display: modalOpen ? "none" : "grid" }}>
+        <div
+          className="image-container"
+          style={{ display: modalOpen ? "none" : "grid" }}
+        >
           {images.map((image) => (
             <img
               key={image.id}
@@ -85,10 +102,7 @@ function Home() {
           ))}
         </div>
         {modalOpen && (
-          <ImageModal
-            selectedImage={selectedImage}
-            closeModal={closeModal}
-          />
+          <ImageModal selectedImage={selectedImage} closeModal={closeModal} />
         )}
       </div>
     </div>
